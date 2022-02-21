@@ -1,0 +1,52 @@
+Single Set : 
+    setString
+    setInt
+    setDouble
+    setBool
+    setStringList
+    setIntList
+    setDoubleList
+    setBoolList
+    setDynamicList
+    setMap
+    set
+
+Multi Set : 
+    setMultiString
+    setMultiInt
+    setMultiDouble
+    setMultiBool
+    setMultiStringList
+    setMultiIntList
+    setMultiDoubleList
+    setMultiBoolList
+    setMultiDynamicList
+    setMultiMap
+    setMulti
+
+Single Get : 
+    getString
+    getInt
+    getDouble
+    getBool
+    getStringList
+    getIntList
+    getDoubleList
+    getBoolList
+    getDynamicList
+    getMap
+    get
+
+
+Multi Get : 
+    getMultiString
+    getMultiInt
+    getMultiDouble
+    getMultiBool
+    getMultiStringList
+    getMultiIntList
+    getMultiDoubleList
+    getMultiBoolList
+    getMultiDynamicList
+    getMultiMap
+    getMulti
