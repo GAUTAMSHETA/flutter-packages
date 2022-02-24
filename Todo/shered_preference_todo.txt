@@ -1,0 +1,52 @@
+Single Set : 
+    setString                      // Done
+    setInt                         // Done
+    setDouble                      // Done
+    setBool                        // Done
+    setStringList                  // Done
+    setIntList                     // Done
+    setDoubleList                  // Done
+    setBoolList                    // Done
+    setDynamicList                 // Done
+    setMap                         // Done
+    set                            // Done
+
+Multi Set : 
+    setMultiString                 // Done
+    setMultiInt                    // Done
+    setMultiDouble                 // Done
+    setMultiBool                   // Done
+    setMultiStringList             // Done
+    setMultiIntList                // Done
+    setMultiDoubleList             // Done
+    setMultiBoolList               // Done
+    setMultiDynamicList            // Done
+    setMultiMap                    // Done
+    setMulti                       // Done
+
+Single Get : 
+    getString                      // Done
+    getInt                         // Done
+    getDouble                      // Done
+    getBool                        // Done
+    getStringList                  // Done
+    getIntList                     // Done
+    getDoubleList                  // Done
+    getBoolList                    // Done
+    getDynamicList                 // Done
+    getMap                         // Done
+    get                            // Done
+
+
+Multi Get : 
+    getMultiString                 // Done
+    getMultiInt                    // Done
+    getMultiDouble                 // Done
+    getMultiBool                   // Done
+    getMultiStringList             // Done
+    getMultiIntList                // Done
+    getMultiDoubleList             // Done
+    getMultiBoolList               // Done
+    getMultiDynamicList            // Done
+    getMultiMap                    // Done
+    getMulti                       // Done

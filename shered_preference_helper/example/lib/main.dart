@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  SheredPrefHelper sheredPrefHelper = SheredPrefHelper();
+  ProSheredPreference sheredPrefHelper = ProSheredPreference();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget getButton() {
     return ElevatedButton(
       onPressed: () async {
-        String? result = sheredPrefHelper.getSingleDynamic('gautam');
+        dynamic result = sheredPrefHelper.getSingleDynamic('key1');
+        // dynamic result = sheredPrefHelper.setMultiString({'key1': "Value1"});
         // bool result = await sheredPrefHelper.setMultiDynamic(
         //   {
         //     '1': 1,
@@ -58,9 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
         //     'list': prefDataType.listOfStrings
         // });
 
-        var preferences = await SharedPreferences.getInstance();
-        Object? object = preferences.get('1');
-        print("result : $object");
+        // var preferences = await SharedPreferences.getInstance();
+        // Object? object = preferences.get('1');
+        print("result : $result");
       },
       child: const Text("Button"),
     );
