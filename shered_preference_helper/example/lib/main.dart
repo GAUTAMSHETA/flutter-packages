@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shered_preference_helper/shered_preference_helper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,103 +14,214 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  ProSheredPreference sheredPrefHelper = ProSheredPreference();
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    return Container(
+      child: getButton(),
+    );
+  }
+
+  Widget getButton() {
+    return ElevatedButton(
+      onPressed: () async {
+        // Single Set :
+
+        // bool result = await sheredPrefHelper.setString("setString", "value1");
+        // bool result = await sheredPrefHelper.setInt("setInt", 101);
+        // bool result = await sheredPrefHelper.setDouble("setDouble", 10.1);
+        // bool result = await sheredPrefHelper.setBool("setBool", true);
+        // bool result = await sheredPrefHelper.setStringList("setStringList", ["value1","value2","value3"]);
+        // bool result = await sheredPrefHelper.setIntList("setIntList", [1,2,3,4]);
+        // bool result = await sheredPrefHelper.setDoubleList("setDoubleList", [1.1,2.2,3,4]);
+        // bool result = await sheredPrefHelper.setBoolList("setBoolList", [true,false,true,false]);
+        // bool result = await sheredPrefHelper.setDynamicList("setDynamicList", ["value1",1,2.2,[1,"2",false],true]);
+        // bool result = await sheredPrefHelper.setMap("setMap", {
+        //   "key1": "value",
+        //   "key2": 1,
+        //   "key3": 2.3,
+        //   "key4": true,
+        //   "key5": [1,2,false],
+        //   "key6": {"k":"v"},
+        //   "key7": ["value1",1,2.2,[1,2,false],true]
+        // });
+
+        // bool result = await sheredPrefHelper.set("set1String", "value1");
+        // bool result = await sheredPrefHelper.set("set2int", 2);
+        // bool result = await sheredPrefHelper.set("set3double", 2.3);
+        // bool result = await sheredPrefHelper.set("set4bool", true);
+        // bool result = await sheredPrefHelper.set("set5stringList", ["value1","value2","value3"]);
+        // bool result = await sheredPrefHelper.set("set6intList", [1,2,3,4]);
+        // bool result = await sheredPrefHelper.set("set7doubleList", [1.1,2.2,3,4]);
+        // bool result = await sheredPrefHelper.set("set7.1doubleList", [1.1,2.2,3.3,4.4]);
+        // bool result = await sheredPrefHelper.set("set8boolList", [true,false,true,false]);
+        // bool result = await sheredPrefHelper.set("set9dynamicList", ["value1",1,2.2,[1,2,false],true]);
+        // bool result = await sheredPrefHelper.set("set10Map", {
+        //   "key1": "value",
+        //   "key2": 1,
+        //   "key3": 2.3,
+        //   "key4": true,
+        //   "key5": [1,2,false],
+        //   "key6": {"k":"v"},
+        //   "key7": ["value1",1,2.2,[1,2,false],true]
+        // });
+
+// Multi Set :
+        // bool result = await sheredPrefHelper.setMultiString({
+        //   "setMultiString1": "value1",
+        //   "setMultiString2": "value2",
+        //   "setMultiString3": "value3",
+        //   "setMultiString4": "value4",
+        //   "setMultiString5": "value5",
+        // });
+        // bool result = await sheredPrefHelper.setMultiInt({
+        //   "setMultiInt1": 1,
+        //   "setMultiInt2": 2,
+        //   "setMultiInt3": 3,
+        //   "setMultiInt4": 4,
+        //   "setMultiInt5": 5,
+        // });
+        // bool result = await sheredPrefHelper.setMultiDouble({
+        //   "setMultiDouble1": 1.4,
+        //   "setMultiDouble2": 2.4,
+        //   "setMultiDouble3": 3,
+        //   "setMultiDouble4": 4,
+        //   "setMultiDouble5": 5.4,
+        // });
+        // bool result = await sheredPrefHelper.setMultiBool({
+        //   "setMultiBool1": true,
+        //   "setMultiBool2": false,
+        //   "setMultiBool3": true,
+        //   "setMultiBool4": false,
+        //   "setMultiBool5": true,
+        // });
+        // bool result = await sheredPrefHelper.setMultiStringList({
+        //   "setMultiStringList1": ["value1","value2","value3"],
+        //   "setMultiStringList2": ["value1","value2","value3"],
+        //   "setMultiStringList3": ["value1","value2","value3"],
+        //   "setMultiStringList4": ["value1","value2","value3"],
+        //   "setMultiStringList5": ["value1","value2","value3"],
+        // });
+        // bool result = await sheredPrefHelper.setMultiIntList({
+        //   "setMultiIntList1": [1,2,3,4],
+        //   "setMultiIntList2": [1,2,3,4],
+        //   "setMultiIntList3": [1,2,3,4],
+        //   "setMultiIntList4": [1,2,3,4],
+        //   "setMultiIntList5": [1,2,3,4],
+        // });
+        // bool result = await sheredPrefHelper.setMultiDoubleList({
+        //   "setMultiDoubleList1": [1.1,2.2,3,4],
+        //   "setMultiDoubleList2": [1.1,2.2,3.3,4.4],
+        //   "setMultiDoubleList3": [1.1,2.2,3,4],
+        //   "setMultiDoubleList4": [1.1,2.2,3.3,4.4],
+        //   "setMultiDoubleList5": [1.1,2.2,3,4],
+        // });
+        // bool result = await sheredPrefHelper.setMultiBoolList({
+        //   "setMultiBoolList1": [true,false,true,false],
+        //   "setMultiBoolList2": [true,false,true,false],
+        //   "setMultiBoolList3": [true,false,true,false],
+        //   "setMultiBoolList4": [true,false,true,false],
+        //   "setMultiBoolList5": [true,false,true,false],
+        // });
+        // bool result = await sheredPrefHelper.setMultiDynamicList({
+        //   "setMultiDynamicList1": ["value1","value2","value3"],
+        //   "setMultiDynamicList2": [1,2,3,4],
+        //   "setMultiDynamicList3":  [1.1,2.2,3,4],
+        //   "setMultiDynamicList4": [1.1,2.2,3.3,4.4],
+        //   "setMultiDynamicList5": [true,false,true,false],
+        //   "setMultiDynamicList6": ["value1",1,2.2,[1,2,false,"Gautam",[true,"a",1]],true],
+        // });
+        // bool result = await sheredPrefHelper.setMultiMap({
+        //   "setMultiMap1": {
+        //   "key1": "value",
+        //   "key2": 1,
+        //   "key3": 2.3,
+        //   "key4": true,
+        //   "key5": [1,2,false],
+        //   "key6": {"k":"v"},
+        //   "key7": ["value1",1,2.2,[1,2,false],true]
+        // },
+        //   "setMultiMap2": {
+        //   "key1": "value",
+        //   "key2": 1,
+        //   "key3": 2.3,
+        //   "key4": true,
+        //   "key5": [1,2,false],
+        //   "key6": {"k":"v"},
+        //   "key7": ["value1",1,2.2,[1,2,false],true]
+        // },
+        //   "setMultiMap3": {
+        //   "key1": "value",
+        //   "key2": 1,
+        //   "key3": 2.3,
+        //   "key4": true,
+        //   "key5": [1,2,false],
+        //   "key6": {"k":"v"},
+        //   "key7": ["value1",1,2.2,[1,2,false],true]
+        // },
+        //   "setMultiMap4": {
+        //   "key1": "value",
+        //   "key2": 1,
+        //   "key3": 2.3,
+        //   "key4": true,
+        //   "key5": [1,2,false],
+        //   "key6": {"k":"v"},
+        //   "key7": ["value1",1,2.2,[1,2,false],true]
+        // },
+        // });
+        // bool result = await sheredPrefHelper.setMulti({
+        //   "setMulti1": "value1",
+        //   "setMulti2": 2,
+        //   "setMulti3":  2.3,
+        //   "setMulti4": ["value1","value2","value3"],
+        //   "setMulti5": [1,2,3,4],
+        //   "setMulti6": [1.1,2.2,3,4],
+        //   "setMulti7": [1.1,2.2,3.3,4.4],
+        //   "setMulti8": [true,false,true,false],
+        //   "setMulti9": ["value1",1,2.2,[1,2,false],true],
+        //   "setMulti10": {
+        //   "key1": "value",
+        //   "key2": 1,
+        //   "key3": 2.3,
+        //   "key4": true,
+        //   "key5": [1,2,false],
+        //   "key6": {"k":"v"},
+        //   "key7": ["value1",1,2.2,[1,2,false],true]
+        // },
+        // });
+
+      // String result = await sheredPrefHelper.getString("set1String");
+      // int result = await sheredPrefHelper.getInt("set2int");
+      // double result = await sheredPrefHelper.getDouble("setDouble");
+      // bool result = await sheredPrefHelper.getBool("setBool");
+      // List<String> result = await sheredPrefHelper.getStringList("setStringList");
+      // List<int> result = await sheredPrefHelper.getIntList("setIntList");
+      // List<double> result = await sheredPrefHelper.getDoubleList("setDoubleList");
+      // List<bool> result = await sheredPrefHelper.getBoolList("setBoolList");
+      // List<dynamic> result = await sheredPrefHelper.getDynamicList("setMultiDynamicList6");
+      // Map<String, dynamic> result = await sheredPrefHelper.getMap("setMap");
+      var result = {"s":1,"a":"s"};
+
+        print("result : $result");
+        print("runtimeType : ${result.runtimeType is IdentityMap<String, Object>}");
+      },
+      child: const Text("Button"),
     );
   }
 }

@@ -1,7 +1,3 @@
-library shered_preference_helper;
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:shered_preference_helper/shered_preference_helper.dart';
+export 'package:shared_preferences/shared_preferences.dart';
+export 'package:shered_preference_helper/src/pro_shered_preference.dart';
