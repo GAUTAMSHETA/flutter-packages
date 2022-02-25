@@ -1,39 +1,39 @@
 Single Set : 
-    setString                      // Done
-    setInt                         // Done
-    setDouble                      // Done
-    setBool                        // Done
-    setStringList                  // Done
-    setIntList                     // Done
-    setDoubleList                  // Done
-    setBoolList                    // Done
-    setDynamicList                 // Done
-    setMap                         // Done
-    set                            // Done
+    setString                      // Done     // Test
+    setInt                         // Done     // Test
+    setDouble                      // Done     // Test
+    setBool                        // Done     // Test
+    setStringList                  // Done     // Test
+    setIntList                     // Done     // Test
+    setDoubleList                  // Done     // Test
+    setBoolList                    // Done     // Test
+    setDynamicList                 // Done     // Test
+    setMap                         // Done     // Test
+    set                            // Done     // Test
 
 Multi Set : 
-    setMultiString                 // Done
-    setMultiInt                    // Done
-    setMultiDouble                 // Done
-    setMultiBool                   // Done
-    setMultiStringList             // Done
-    setMultiIntList                // Done
-    setMultiDoubleList             // Done
-    setMultiBoolList               // Done
-    setMultiDynamicList            // Done
-    setMultiMap                    // Done
-    setMulti                       // Done
+    setMultiString                 // Done     // Test
+    setMultiInt                    // Done     // Test
+    setMultiDouble                 // Done     // Test
+    setMultiBool                   // Done     // Test
+    setMultiStringList             // Done     // Test
+    setMultiIntList                // Done     // Test
+    setMultiDoubleList             // Done     // Test
+    setMultiBoolList               // Done     // Test
+    setMultiDynamicList            // Done     // Test
+    setMultiMap                    // Done     // Test
+    setMulti                       // Done     // Test
 
 Single Get : 
-    getString                      // Done
-    getInt                         // Done
-    getDouble                      // Done
-    getBool                        // Done
-    getStringList                  // Done
-    getIntList                     // Done
-    getDoubleList                  // Done
-    getBoolList                    // Done
-    getDynamicList                 // Done
+    getString                      // Done     // Test
+    getInt                         // Done     // Test
+    getDouble                      // Done     // Test
+    getBool                        // Done     // Test
+    getStringList                  // Done     // Test
+    getIntList                     // Done     // Test
+    getDoubleList                  // Done     // Test
+    getBoolList                    // Done     // Test
+    getDynamicList                 // Done     // Test
     getMap                         // Done
     get                            // Done
 

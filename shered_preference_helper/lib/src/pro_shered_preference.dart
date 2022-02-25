@@ -66,53 +66,53 @@ abstract class ProSheredPreference {
 
   // Single Get :
 
-  String getString(String key);
+  Future<String> getString(String key);
 
-  int getInt(String key);
+  Future<int> getInt(String key);
 
-  double getDouble(String key);
+  Future<double> getDouble(String key);
 
-  bool getBool(String key);
+  Future<bool> getBool(String key);
 
-  List<String> getStringList(String key);
+  Future<List<String>> getStringList(String key);
 
-  List<int> getIntList(String key);
+  Future<List<int>> getIntList(String key);
 
-  List<double> getDoubleList(String key);
+  Future<List<double>> getDoubleList(String key);
 
-  List<bool> getBoolList(String key);
+  Future<List<bool>> getBoolList(String key);
 
-  Map<String, dynamic> getMap(String key);
+  Future<Map<String, dynamic>> getMap(String key);
 
-  List<dynamic> getDynamicList(String key);
+  Future<List<dynamic>> getDynamicList(String key);
 
-  dynamic get(String key);
+  Future<dynamic> get(String key);
 
 
 
   // Multi Get :
 
-  Map<String, String> getMultiString(List<String> keys);
+  Future<Map<String, String>> getMultiString(List<String> keys);
 
-  Map<String, int> getMultiInt(List<String> keys);
+  Future<Map<String, int>> getMultiInt(List<String> keys);
 
-  Map<String, double> getMultiDouble(List<String> keys);
+  Future<Map<String, double>> getMultiDouble(List<String> keys);
 
-  Map<String, bool> getMultiBool(List<String> keys);
+  Future<Map<String, bool>> getMultiBool(List<String> keys);
 
-  Map<String, List<String>> getMultiStringList(List<String> keys);
+  Future<Map<String, List<String>>> getMultiStringList(List<String> keys);
 
-  Map<String, List<int>> getMultiIntList(List<String> keys);
+  Future<Map<String, List<int>>> getMultiIntList(List<String> keys);
 
-  Map<String, List<double>> getMultiDoubleList(List<String> keys);
+  Future<Map<String, List<double>>> getMultiDoubleList(List<String> keys);
 
-  Map<String, List<bool>> getMultiBoolList(List<String> keys);
+  Future<Map<String, List<bool>>> getMultiBoolList(List<String> keys);
 
-  Map<String, List<dynamic>> getMultiDynamicList(List<String> keys);
+  Future<Map<String, List<dynamic>>> getMultiDynamicList(List<String> keys);
 
-  Map<String, Map<String, dynamic>> getMultiMap(List<String> keys);
+  Future<Map<String, Map<String, dynamic>>> getMultiMap(List<String> keys);
 
-  Map<String, dynamic> getMulti(List<String> keys);
+  Future<Map<String, dynamic>> getMulti(List<String> keys);
 
 }
 

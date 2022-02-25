@@ -11,6 +11,7 @@ mixin strings {
   static String listOfDynamic = "listOfDynamic";
   static String dynamic = "dynamic";
   static String map = "map";
+  static String error = 'GS¡™Error¡™GS';
 }
 
 // extension StringExtension on String {
