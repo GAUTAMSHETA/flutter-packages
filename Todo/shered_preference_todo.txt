@@ -34,19 +34,19 @@ Single Get :
     getDoubleList                  // Done     // Test
     getBoolList                    // Done     // Test
     getDynamicList                 // Done     // Test
-    getMap                         // Done
-    get                            // Done
+    getMap                         // Done     // Test
+    get                            // Done     // Test
 
 
 Multi Get : 
-    getMultiString                 // Done
-    getMultiInt                    // Done
-    getMultiDouble                 // Done
-    getMultiBool                   // Done
-    getMultiStringList             // Done
-    getMultiIntList                // Done
-    getMultiDoubleList             // Done
-    getMultiBoolList               // Done
-    getMultiDynamicList            // Done
-    getMultiMap                    // Done
-    getMulti                       // Done
+    getMultiString                 // Done     // Test
+    getMultiInt                    // Done     // Test
+    getMultiDouble                 // Done     // Test
+    getMultiBool                   // Done     // Test
+    getMultiStringList             // Done     // Test
+    getMultiIntList                // Done     // Test
+    getMultiDoubleList             // Done     // Test
+    getMultiBoolList               // Done     // Test
+    getMultiDynamicList            // Done     // Test
+    getMultiMap                    // Done     // Test
+    getMulti                       // Done     // Test
