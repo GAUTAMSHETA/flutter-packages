@@ -13,7 +13,6 @@ class _SheredPrefHelper implements ProSheredPreference {
     return _sheredPrefHelper!;
   }
 
-  @override
   SharedPreferences? preferences;
 
   Future<void> _init() async {
@@ -119,7 +118,7 @@ class _SheredPrefHelper implements ProSheredPreference {
       return await _prefSetter(
           key, jsonEncode(value) + strings.separator + strings.map);
     } else {
-      _exception(true, "message");
+      _exception(true, key);
       return false;
     }
   }
@@ -223,7 +222,7 @@ class _SheredPrefHelper implements ProSheredPreference {
         return MapEntry(
             key, jsonEncode(value) + strings.separator + strings.map);
       } else {
-        _exception(true, "message");
+        _exception(true, key);
         return MapEntry(
             key, value.toString() + strings.separator + strings.dynamic);
       }
@@ -415,7 +414,7 @@ class _SheredPrefHelper implements ProSheredPreference {
 
   dynamic _getDynamic(String key) {
     String? action = preferences?.getString(key);
-    _exception(action == null, "$key not found");
+    _exception(action == null, key);
 
     List<String> tempList = action!.split(strings.separator);
 
@@ -481,11 +480,11 @@ class _SheredPrefHelper implements ProSheredPreference {
 
   String __prefGetter(String key, String type) {
     String? action = preferences?.getString(key);
-    _exception(action == null, "$key not found");
+    _exception(action == null, key);
 
     List<String> tempList = action!.split(strings.separator);
-    _exception(
-        tempList.last != type, "value of $key is type of ${tempList.last}");
+    _exception1(tempList.last != type, key,
+        "value of $key is type of ${tempList.last}");
 
     if (tempList.last == type) {
       return tempList.first;
@@ -508,8 +507,12 @@ class _SheredPrefHelper implements ProSheredPreference {
     return temp;
   }
 
-  void _exception(bool condition, String message) {
-    condition ? throw message : null;
+  void _exception(bool condition, String key) {
+    condition ? throw PrefException(key, '$key not found') : null;
+  }
+
+  void _exception1(bool condition, String key, String message) {
+    condition ? throw PrefException(key, message) : null;
   }
 
   // List<String> toList(String input) {

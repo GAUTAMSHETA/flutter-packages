@@ -47,8 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
         result = await sheredPrefHelper.setInt("setInt", 101);
         result = await sheredPrefHelper.setDouble("setDouble", 10.1);
         result = await sheredPrefHelper.setBool("setBool", true);
-        result = await sheredPrefHelper
-            .setStringList("setStringList", ["value1", "value2", "value3"]);
+        // result = await sheredPrefHelper
+        //     .setStringList("setStringList", ['value1', 'value2', "value3"]);
         result = await sheredPrefHelper.setIntList("setIntList", [1, 2, 3, 4]);
         result = await sheredPrefHelper
             .setDoubleList("setDoubleList", [1.1, 2.2, 3, 4]);
@@ -288,7 +288,11 @@ class _MyHomePageState extends State<MyHomePage> {
         int result2 = await sheredPrefHelper.getInt("set2int");
         double result3 = await sheredPrefHelper.getDouble("setDouble");
         bool result4 = await sheredPrefHelper.getBool("setBool");
-        List<String> result5 = await sheredPrefHelper.getStringList("setStringList");
+        try {
+          List<String> result5 = await sheredPrefHelper.getStringList("setStringList");
+        } on PrefException catch (e) {
+          print(e.toString());
+        }
         List<int> result6 = await sheredPrefHelper.getIntList("setIntList");
         List<double> result7 = await sheredPrefHelper.getDoubleList("setDoubleList");
         List<bool> result8 = await sheredPrefHelper.getBoolList("setBoolList");
