@@ -13,7 +13,6 @@ class _SheredPrefHelper implements ProSheredPreference {
     return _sheredPrefHelper!;
   }
 
-  @override
   SharedPreferences? preferences;
 
   Future<void> _init() async {
@@ -50,42 +49,41 @@ class _SheredPrefHelper implements ProSheredPreference {
     // final encodedMessage = fusedCodec.encode(value);
     // final decodedMessage = fusedCodec.decode(encodedMessage);
     return await _prefSetter(
-        key, listToString(value) + strings.separator + strings.listOfStrings);
+        key, jsonEncode(value) + strings.separator + strings.listOfStrings);
   }
 
   @override
   Future<bool> setIntList(String key, List<int> value) async {
     return await _prefSetter(
-        key, listToString(value) + strings.separator + strings.listOfInteger);
+        key, jsonEncode(value) + strings.separator + strings.listOfInteger);
   }
 
   @override
   Future<bool> setDoubleList(String key, List<double> value) async {
     return await _prefSetter(
-        key, listToString(value) + strings.separator + strings.listOfDouble);
+        key, jsonEncode(value) + strings.separator + strings.listOfDouble);
   }
 
   @override
   Future<bool> setBoolList(String key, List<bool> value) async {
     return await _prefSetter(
-        key, listToString(value) + strings.separator + strings.listOfBoolean);
+        key, jsonEncode(value) + strings.separator + strings.listOfBoolean);
   }
 
   @override
   Future<bool> setDynamicList(String key, List<dynamic> value) async {
     return await _prefSetter(
-        key, listToString(value) + strings.separator + strings.listOfDynamic);
+        key, jsonEncode(value) + strings.separator + strings.listOfDynamic);
   }
 
   @override
   Future<bool> setMap(String key, Map<String, dynamic> value) async {
     return await _prefSetter(
-        key, value.toString() + strings.separator + strings.map);
+        key, jsonEncode(value) + strings.separator + strings.map);
   }
 
   @override
   Future<bool> set(String key, dynamic value) async {
-    print(value.runtimeType);
     if (value.runtimeType == String) {
       return await _prefSetter(
           key, value.toString() + strings.separator + strings.string);
@@ -100,27 +98,27 @@ class _SheredPrefHelper implements ProSheredPreference {
           key, value.toString() + strings.separator + strings.boolean);
     } else if (value.runtimeType == List<String>) {
       return await _prefSetter(
-          key, listToString(value) + strings.separator + strings.listOfStrings);
+          key, jsonEncode(value) + strings.separator + strings.listOfStrings);
     } else if (value.runtimeType == List<int>) {
       return await _prefSetter(
-          key, listToString(value) + strings.separator + strings.listOfInteger);
+          key, jsonEncode(value) + strings.separator + strings.listOfInteger);
     } else if ((value.runtimeType == List<double>) ||
         value.runtimeType == List<num>) {
       return await _prefSetter(
-          key, listToString(value) + strings.separator + strings.listOfDouble);
+          key, jsonEncode(value) + strings.separator + strings.listOfDouble);
     } else if (value.runtimeType == List<bool>) {
       return await _prefSetter(
-          key, listToString(value) + strings.separator + strings.listOfBoolean);
+          key, jsonEncode(value) + strings.separator + strings.listOfBoolean);
     } else if ((value.runtimeType == List<dynamic>) ||
         value.runtimeType == List<Object>) {
       return await _prefSetter(
-          key, listToString(value) + strings.separator + strings.listOfDynamic);
+          key, jsonEncode(value) + strings.separator + strings.listOfDynamic);
     } else if ((value.runtimeType == Map<String, dynamic>) ||
         (value.runtimeType.toString() == 'IdentityMap<String, Object>')) {
       return await _prefSetter(
-          key, value.toString() + strings.separator + strings.map);
+          key, jsonEncode(value) + strings.separator + strings.map);
     } else {
-      _exception(true, "message");
+      _exception(true, key);
       return false;
     }
   }
@@ -154,37 +152,37 @@ class _SheredPrefHelper implements ProSheredPreference {
   @override
   Future<bool> setMultiStringList(Map<String, List<String>> data) async {
     return await _multiPrefSetter(data.map((key, value) => MapEntry(
-        key, listToString(value) + strings.separator + strings.listOfStrings)));
+        key, jsonEncode(value) + strings.separator + strings.listOfStrings)));
   }
 
   @override
   Future<bool> setMultiIntList(Map<String, List<int>> data) async {
     return await _multiPrefSetter(data.map((key, value) => MapEntry(
-        key, listToString(value) + strings.separator + strings.listOfInteger)));
+        key, jsonEncode(value) + strings.separator + strings.listOfInteger)));
   }
 
   @override
   Future<bool> setMultiDoubleList(Map<String, List<double>> data) async {
     return await _multiPrefSetter(data.map((key, value) => MapEntry(
-        key, listToString(value) + strings.separator + strings.listOfDouble)));
+        key, jsonEncode(value) + strings.separator + strings.listOfDouble)));
   }
 
   @override
   Future<bool> setMultiBoolList(Map<String, List<bool>> data) async {
     return await _multiPrefSetter(data.map((key, value) => MapEntry(
-        key, listToString(value) + strings.separator + strings.listOfBoolean)));
+        key, jsonEncode(value) + strings.separator + strings.listOfBoolean)));
   }
 
   @override
   Future<bool> setMultiDynamicList(Map<String, List<dynamic>> data) async {
     return await _multiPrefSetter(data.map((key, value) => MapEntry(
-        key, listToString(value) + strings.separator + strings.listOfDynamic)));
+        key, jsonEncode(value) + strings.separator + strings.listOfDynamic)));
   }
 
   @override
   Future<bool> setMultiMap(Map<String, Map<String, dynamic>> data) async {
     return await _multiPrefSetter(data.map((key, value) =>
-        MapEntry(key, value.toString() + strings.separator + strings.map)));
+        MapEntry(key, jsonEncode(value) + strings.separator + strings.map)));
   }
 
   @override
@@ -203,28 +201,28 @@ class _SheredPrefHelper implements ProSheredPreference {
         return MapEntry(
             key, value.toString() + strings.separator + strings.boolean);
       } else if (value.runtimeType == List<String>) {
-        return MapEntry(key,
-            listToString(value) + strings.separator + strings.listOfStrings);
+        return MapEntry(
+            key, jsonEncode(value) + strings.separator + strings.listOfStrings);
       } else if (value.runtimeType == List<int>) {
-        return MapEntry(key,
-            listToString(value) + strings.separator + strings.listOfInteger);
+        return MapEntry(
+            key, jsonEncode(value) + strings.separator + strings.listOfInteger);
       } else if ((value.runtimeType == List<double>) ||
           value.runtimeType == List<num>) {
-        return MapEntry(key,
-            listToString(value) + strings.separator + strings.listOfDouble);
+        return MapEntry(
+            key, jsonEncode(value) + strings.separator + strings.listOfDouble);
       } else if (value.runtimeType == List<bool>) {
-        return MapEntry(key,
-            listToString(value) + strings.separator + strings.listOfBoolean);
+        return MapEntry(
+            key, jsonEncode(value) + strings.separator + strings.listOfBoolean);
       } else if ((value.runtimeType == List<dynamic>) ||
           value.runtimeType == List<Object>) {
-        return MapEntry(key,
-            listToString(value) + strings.separator + strings.listOfDynamic);
+        return MapEntry(
+            key, jsonEncode(value) + strings.separator + strings.listOfDynamic);
       } else if ((value.runtimeType == Map<String, dynamic>) ||
           (value.runtimeType.toString() == 'IdentityMap<String, Object>')) {
         return MapEntry(
-            key, value.toString() + strings.separator + strings.map);
+            key, jsonEncode(value) + strings.separator + strings.map);
       } else {
-        _exception(true, "message");
+        _exception(true, key);
         return MapEntry(
             key, value.toString() + strings.separator + strings.dynamic);
       }
@@ -266,7 +264,7 @@ class _SheredPrefHelper implements ProSheredPreference {
   @override
   Future<List<String>> getStringList(String key) async {
     String value = await _prefGetter(key, strings.listOfStrings);
-    print(value);
+
     return (jsonDecode(value) as List<dynamic>)
         .map((e) => e as String)
         .toList();
@@ -315,93 +313,111 @@ class _SheredPrefHelper implements ProSheredPreference {
 
   @override
   Future<Map<String, String>> getMultiString(List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.string);
-    return jsonDecode(action) as Map<String, String>;
+    Map<String, String> action = await _multiPrefGetter(keys, strings.string);
+    return action;
   }
 
   @override
   Future<Map<String, int>> getMultiInt(List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.integer);
-    return jsonDecode(action) as Map<String, int>;
+    Map<String, String> action = await _multiPrefGetter(keys, strings.integer);
+    Map<String, int> temp =
+        action.map((key, value) => MapEntry(key, int.parse(value)));
+    return temp;
   }
 
   @override
   Future<Map<String, double>> getMultiDouble(List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.double);
-    return jsonDecode(action) as Map<String, double>;
+    Map<String, String> action = await _multiPrefGetter(keys, strings.double);
+    Map<String, double> temp =
+        action.map((key, value) => MapEntry(key, double.parse(value)));
+    return temp;
   }
 
   @override
   Future<Map<String, bool>> getMultiBool(List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.boolean);
-    return jsonDecode(action) as Map<String, bool>;
+    Map<String, String> action = await _multiPrefGetter(keys, strings.boolean);
+    Map<String, bool> temp = action.map((key, value) =>
+        MapEntry(key, value.toString().toLowerCase() == 'true'));
+    return temp;
   }
 
   @override
   Future<Map<String, List<String>>> getMultiStringList(
       List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.listOfStrings);
-    return jsonDecode(action) as Map<String, List<String>>;
+    Map<String, String> action =
+        await _multiPrefGetter(keys, strings.listOfStrings);
+    Map<String, List<String>> temp = action.map(
+        (key, value) => MapEntry(key, List<String>.from(jsonDecode(value))));
+    return temp;
   }
 
   @override
   Future<Map<String, List<int>>> getMultiIntList(List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.listOfInteger);
-    return jsonDecode(action) as Map<String, List<int>>;
+    Map<String, String> action =
+        await _multiPrefGetter(keys, strings.listOfInteger);
+    Map<String, List<int>> temp = action
+        .map((key, value) => MapEntry(key, List<int>.from(jsonDecode(value))));
+    return temp;
   }
 
   @override
   Future<Map<String, List<double>>> getMultiDoubleList(
       List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.listOfDouble);
-    return jsonDecode(action) as Map<String, List<double>>;
+    Map<String, String> action =
+        await _multiPrefGetter(keys, strings.listOfDouble);
+    Map<String, List<double>> temp = action.map(
+        (key, value) => MapEntry(key, List<double>.from(jsonDecode(value))));
+    return temp;
   }
 
   @override
   Future<Map<String, List<bool>>> getMultiBoolList(List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.listOfBoolean);
-    return jsonDecode(action) as Map<String, List<bool>>;
+    Map<String, String> action =
+        await _multiPrefGetter(keys, strings.listOfBoolean);
+    Map<String, List<bool>> temp = action
+        .map((key, value) => MapEntry(key, List<bool>.from(jsonDecode(value))));
+    return temp;
   }
 
   @override
   Future<Map<String, List<dynamic>>> getMultiDynamicList(
       List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.listOfDynamic);
-    return jsonDecode(action) as Map<String, List<dynamic>>;
+    Map<String, String> action =
+        await _multiPrefGetter(keys, strings.listOfDynamic);
+    Map<String, List<dynamic>> temp =
+        action.map((key, value) => MapEntry(key, jsonDecode(value)));
+    return temp;
   }
 
   @override
   Future<Map<String, Map<String, dynamic>>> getMultiMap(
       List<String> keys) async {
-    String action = await _multiPrefGetter(keys, strings.map);
-    return jsonDecode(action) as Map<String, Map<String, dynamic>>;
+    Map<String, String> action = await _multiPrefGetter(keys, strings.map);
+    Map<String, Map<String, dynamic>> temp =
+        action.map((key, value) => MapEntry(key, jsonDecode(value)));
+    return temp;
   }
 
   @override
   Future<Map<String, dynamic>> getMulti(List<String> keys) async {
-    String temp = "{";
+    Map<String, dynamic> temp = {};
 
     await _init();
 
     for (String key in keys) {
       dynamic action = _getDynamic(key);
-      temp += '"' + key + '":"' + (action?.toString() ?? "null") + '",';
+      temp.addAll({key: action});
     }
 
-    if (temp.length > 2) {
-      temp = temp.substring(0, temp.length - 1);
-    }
-    temp += "}";
-    return jsonDecode(temp) as Map<String, dynamic>;
+    return temp;
   }
 
   dynamic _getDynamic(String key) {
     String? action = preferences?.getString(key);
-    _exception(action == null, "$key not found");
+    _exception(action == null, key);
 
     List<String> tempList = action!.split(strings.separator);
 
-    print(tempList);
     if (tempList.last == strings.string) {
       return tempList.first.toString();
     } else if (tempList.last == strings.integer) {
@@ -411,17 +427,17 @@ class _SheredPrefHelper implements ProSheredPreference {
     } else if (tempList.last == strings.boolean) {
       return tempList.first == 'true';
     } else if (tempList.last == strings.listOfStrings) {
-      return json.decode(tempList.first);
+      return jsonDecode(tempList.first);
     } else if (tempList.last == strings.listOfInteger) {
-      return json.decode(tempList.first);
+      return jsonDecode(tempList.first);
     } else if (tempList.last == strings.listOfDouble) {
-      return json.decode(tempList.first);
+      return jsonDecode(tempList.first);
     } else if (tempList.last == strings.listOfBoolean) {
-      return json.decode(tempList.first);
+      return jsonDecode(tempList.first);
     } else if (tempList.last == strings.listOfDynamic) {
-      return json.decode(tempList.first);
+      return jsonDecode(tempList.first);
     } else if (tempList.last == strings.map) {
-      return json.decode(tempList.first);
+      return jsonDecode(tempList.first);
     } else {
       return 'Error';
     }
@@ -464,11 +480,11 @@ class _SheredPrefHelper implements ProSheredPreference {
 
   String __prefGetter(String key, String type) {
     String? action = preferences?.getString(key);
-    _exception(action == null, "$key not found");
+    _exception(action == null, key);
 
     List<String> tempList = action!.split(strings.separator);
-    _exception(
-        tempList.last != type, "value of $key is type of ${tempList.last}");
+    _exception1(tempList.last != type, key,
+        "value of $key is type of ${tempList.last}");
 
     if (tempList.last == type) {
       return tempList.first;
@@ -477,73 +493,30 @@ class _SheredPrefHelper implements ProSheredPreference {
     }
   }
 
-  Future<String> _multiPrefGetter(List<String> keys, String type) async {
-    String temp = "{";
+  Future<Map<String, String>> _multiPrefGetter(
+      List<String> keys, String type) async {
+    Map<String, String> temp = {};
 
     await _init();
 
     for (String key in keys) {
       String action = __prefGetter(key, type);
-      temp += '"' + key + '":"' + action + '",';
+      temp.addAll({key: action});
     }
 
-    if (temp.length > 2) {
-      temp = temp.substring(0, temp.length - 1);
-    }
-    temp += "}";
     return temp;
   }
 
-  void _exception(bool condition, String message) {
-    condition ? throw message : null;
+  void _exception(bool condition, String key) {
+    condition ? throw PrefException(key, '$key not found') : null;
   }
 
-  List<String> toList(String input) {
-    input
-        .replaceAll('[', '')
-        .replaceAll(']', '')
-        .split(", ")
-        .forEach((element) {
-      print(element);
-    });
-    print(input.replaceAll('[', '').replaceAll(']', '').split(','));
-    return input.replaceAll('[', '').replaceAll(']', '').split(',');
+  void _exception1(bool condition, String key, String message) {
+    condition ? throw PrefException(key, message) : null;
   }
 
-  String listToString(List list) {
-    String temp = "[";
-    for (var element in list) {
-      if (element.runtimeType == String) {
-        temp += '"' + element + '",';
-      } else if (element.runtimeType == List<Object>) {
-        temp += listToString(element) + ',';
-      } else {
-        temp += element.toString() + ',';
-      }
-    }
-    if (temp.length > 2) {
-      temp = temp.substring(0, temp.length - 1);
-    }
-    temp += "]";
-    return temp;
-  }
+  // List<String> toList(String input) {
+  //   return input.replaceAll('[', '').replaceAll(']', '').split(',');
+  // }
 
-  String mapToString(Map<String, dynamic> map) {
-    String temp = "{";
-    map.forEach((key, value) {
-      if (value.runtimeType == String) {
-        temp += '"' + key + '":"' + value + '",';
-      } else if (value.runtimeType == List<Object>) {
-        temp += '"' + key + '":' + listToString(value) + ',';
-      } else {
-        temp += value.toString() + ',';
-        temp += '"' + key + '":' + value.toString() + ',';
-      }
-    });
-    if (temp.length > 2) {
-      temp = temp.substring(0, temp.length - 1);
-    }
-    temp += "}";
-    return temp;
-  }
 }
