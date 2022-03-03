@@ -1,6 +1,7 @@
 name: pro_shered_preference
 description: A new Flutter package project.
 version: 0.0.1
+outhor: Gautam Sheta<developer.gautam01@gmail.com>
 homepage: https://github.com/GAUTAMSHETA/flutter-packages.git
 
 environment:
