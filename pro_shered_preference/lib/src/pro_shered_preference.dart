@@ -396,10 +396,10 @@ abstract class ProSheredPreference {
   ///
   /// try {
   ///   String result = await sheredPrefHelper.getString("key");
+  ///   print(result);       // print string according to key
   /// } on PrefException catch (e) {
-  ///   print(e.toString()); 
+  ///   print(e.toString());
   /// }
-  /// print(result);       // print string according to key
   /// ```
   Future<String> getString(String key);
 
@@ -413,10 +413,10 @@ abstract class ProSheredPreference {
   ///
   /// try {
   ///   int result = await sheredPrefHelper.getInt("key");
+  ///   print(result);       // print integer according to key
   /// } on PrefException catch (e) {
-  ///   print(e.toString()); 
+  ///   print(e.toString());
   /// }
-  /// print(result);       // print integer according to key
   /// ```
   Future<int> getInt(String key);
 
@@ -430,10 +430,10 @@ abstract class ProSheredPreference {
   ///
   /// try {
   ///   double result = await sheredPrefHelper.getDouble("key");
+  ///   print(result);       // print double according to key
   /// } on PrefException catch (e) {
-  ///   print(e.toString()); 
+  ///   print(e.toString());
   /// }
-  /// print(result);       // print double according to key
   /// ```
   Future<double> getDouble(String key);
 
@@ -447,10 +447,10 @@ abstract class ProSheredPreference {
   ///
   /// try {
   ///   bool result = await sheredPrefHelper.getBool("key");
+  ///   print(result);       // print boolean according to key
   /// } on PrefException catch (e) {
-  ///   print(e.toString()); 
+  ///   print(e.toString());
   /// }
-  /// print(result);       // print boolean according to key
   /// ```
   Future<bool> getBool(String key);
 
@@ -464,48 +464,293 @@ abstract class ProSheredPreference {
   ///
   /// try {
   ///   List<String> result = await sheredPrefHelper.getStringList("key");
+  ///   print(result);       // print List of String according to key
   /// } on PrefException catch (e) {
-  ///   print(e.toString()); 
+  ///   print(e.toString());
   /// }
-  /// print(result);       // print List of String according to key
   /// ```
   Future<List<String>> getStringList(String key);
 
+  /// getIntList use for get List of Integer
+  ///
+  /// return List of Integer according to key, if key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   List<int> result = await sheredPrefHelper.getIntList("key");
+  ///   print(result);       // print List of Integer according to key
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
+  /// ```
   Future<List<int>> getIntList(String key);
 
+  /// getDoubleList use for get List of Double
+  ///
+  /// return List of Double according to key, if key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   List<double> result = await sheredPrefHelper.getDoubleList("key");
+  ///   print(result);       // print List of Double according to key
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
+  /// ```
   Future<List<double>> getDoubleList(String key);
 
+  /// getBoolList use for get List of Boolean
+  ///
+  /// return List of Boolean according to key, if key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   List<bool> result = await sheredPrefHelper.getBoolList("key");
+  ///   print(result);       // print List of Boolean according to key
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
+  /// ```
   Future<List<bool>> getBoolList(String key);
 
+  /// getMap use for get Map<String, dynamic> type of map
+  ///
+  /// return Map<String, dynamic> type of map according to key, if key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, dynamic> result = await sheredPrefHelper.getMap("key");
+  ///   print(result);       // print Map<String, dynamic> type of map according to key
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
+  /// ```
   Future<Map<String, dynamic>> getMap(String key);
 
+  /// getDynamicList use for get List of dynamic type
+  ///
+  /// return List according to key, if key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   List<dynamic> result = await sheredPrefHelper.getDynamicList("key");
+  ///   print(result);       // print List according to key
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
+  /// ```
   Future<List<dynamic>> getDynamicList(String key);
 
+  /// get use for get any type of data
+  ///
+  /// return data according to key, if key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   var result = await sheredPrefHelper.get("key");
+  ///   print(result);       // print data according to key
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
+  /// ```
   Future<dynamic> get(String key);
 
   // Multi Get :
 
+  /// getMultiString use for get multiple string at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, String> result = await sheredPrefHelper.getMultiString(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
+  /// ```
   Future<Map<String, String>> getMultiString(List<String> keys);
 
+  /// getMultiInt use for get multiple integer at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, int> result = await sheredPrefHelper.getMultiInt(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
+  /// ```
   Future<Map<String, int>> getMultiInt(List<String> keys);
 
+  /// getMultiDouble use for get multiple double at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, double> result = await sheredPrefHelper.getMultiDouble(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
+  /// ```
   Future<Map<String, double>> getMultiDouble(List<String> keys);
 
+  /// getMultiBool use for get multiple boolean at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, bool> result = await sheredPrefHelper.getMultiBool(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
   Future<Map<String, bool>> getMultiBool(List<String> keys);
 
+  /// getMultiStringList use for get multiple list of string at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, List<String>> result = await sheredPrefHelper.getMultiStringList(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
   Future<Map<String, List<String>>> getMultiStringList(List<String> keys);
 
+  /// getMultiIntList use for get multiple list of integer at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, List<int>> result = await sheredPrefHelper.getMultiIntList(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
   Future<Map<String, List<int>>> getMultiIntList(List<String> keys);
 
+  /// getMultiDoubleList use for get multiple list of double at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, List<double>> result = await sheredPrefHelper.getMultiDoubleList(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
   Future<Map<String, List<double>>> getMultiDoubleList(List<String> keys);
 
+  /// getMultiBoolList use for get multiple list of boolean at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, List<bool>> result = await sheredPrefHelper.getMultiBoolList(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
   Future<Map<String, List<bool>>> getMultiBoolList(List<String> keys);
 
+  /// getMultiDynamicList use for get multiple list of dynamic data type at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, List<dynamic>> result = await sheredPrefHelper.getMultiDynamicList(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
   Future<Map<String, List<dynamic>>> getMultiDynamicList(List<String> keys);
 
+  /// getMultiDynamicList use for get multiple map at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, Map<String, dynamic>> result = await sheredPrefHelper.getMultiDynamicList(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
   Future<Map<String, Map<String, dynamic>>> getMultiMap(List<String> keys);
 
+  /// getMulti use for get multiple values at once
+  ///
+  /// return Map of key value pair according to keys, if any key is not found then throw `PrefException` exception
+  ///
+  /// Example :
+  /// ```dart
+  /// ProSheredPreference sheredPrefHelper = ProSheredPreference();
+  ///
+  /// try {
+  ///   Map<String, dynamic> result = await sheredPrefHelper.getMulti(["key1","key2","key3"]);
+  ///   print(result);       // print data according to keys
+  /// } on PrefException catch (e) {
+  ///   print(e.toString());
+  /// }
   Future<Map<String, dynamic>> getMulti(List<String> keys);
 }
-
-// ProSheredPreference proSheredPreference = ProSheredPreference();

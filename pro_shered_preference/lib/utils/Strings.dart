@@ -13,4 +13,3 @@ mixin strings {
   static String map = "map";
   static String error = 'GS¡™Error¡™GS';
 }
-
