@@ -1,7 +1,7 @@
 name: shered_preference_helper
 description: A new Flutter package project.
 version: 0.0.1
-homepage: "Gautam Sheta"
+homepage: https://github.com/GAUTAMSHETA/flutter-packages.git
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
