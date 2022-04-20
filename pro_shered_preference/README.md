@@ -1,4 +1,3 @@
-# pro_shered_preference for flutter
 `rpo_shered_preference` will help you to store any type of data in the form of key-value pair to your localstorage
 
 ## Platform Support
@@ -19,7 +18,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```dart
 dependencies:
-  pro_shered_preference: ^0.0.1
+  pro_shered_preference: ^0.0.7
 ```
 
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.
@@ -123,4 +122,9 @@ Map<String, String> result33 = await sheredPrefHelper.getMultiString([
 
 ## Note
 
-once you use `pro_shered_preference` package, Do not use any kind of similar package for get or store prefrence value.
+once you use `pro_shered_preference` package, Do not use any kind of similar package for get or store prefrence value. othervise it will throw an error
+
+## Developer
+
+<img src="https://lh3.googleusercontent.com/oIEQhW8NTOBtcHc1dz9sPiAapM6VBa3rDTixUPkAHA4VgqE9_syfzXXgh5GpiZjugsrMwnwBCbXsSHK59oOHEdgTUer25Ge1eFtKCJnXxML6R86GWnm1Lh5aqL12b52XadFqTOHepJ6a2JrgQ6sNQww6NOeoWy5A5g1VRqWyt7dizxw4AYLZ2140gN2kNK3mWRDD1uqYO_SFEeuwErqcPYhtQ3Re_1CFWcwI64fnF_jJFXfM1QeVrgp2lYSkrTKqqCHCCjSusn8OSF4u2UvDUA09eWN2e7k1Guu1uuOn5gwFhNyu4sbvNaas94s28p5oxv56AwNGnkPTZYOxduGXMj9VOuSLT7-yxGKDi0bpDfPjixpg1mlW6Vu5A2gqijl0MKSRAdkCtJcraWm-J8TXkWQIcwdKqjYtJW8_HZ8iTKxTKIRc9zFVDCeeAJ4tN8eiL4Iawx_ySMMZQaR1tP_cfzNiGOZmesfRrXu9BC6c7PstnvBmAZX0fGi2p6Wm6Tn-OIZDquuwo3XPulDL4TmV2flLwfCd0dNP-eQ_q8VcxsMI6ugenWdkbz4toHzpndTiNI7Tyfk03VQ1WSegWRc_DDNKUCqX3bp-uhGxcScbRYRPXVsDyVjMVz5Ohxy46jGnfPNapsdFk2i56RI92Q7A2R8WRhGaE4YTqqBggwJLWL5uwtv0zAQ-BSYAGJZGbEj1HjkhwruVuKECz6po8Ph7uze2O8LYOs1obkbxv_iD92UG7wrHpNsi8Kl5LH1W7TvX1az_vzMUVW4c16Cq1yL4tCgymOphvkqtgg=s502-no?authuser=0" alt="Avatar" width="100" height="100">
+Gautam Sheta
