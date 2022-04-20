@@ -290,7 +290,7 @@ class _MyHomePageState extends State<MyHomePage> {
         bool result4 = await sheredPrefHelper.getBool("setBool");
         try {
           List<String> result5 = await sheredPrefHelper.getStringList("setStringList");
-        } on PrefException catch (e) {
+        } on WrongDatatypeException catch (e) {
           print(e.toString());
         }
         List<int> result6 = await sheredPrefHelper.getIntList("setIntList");

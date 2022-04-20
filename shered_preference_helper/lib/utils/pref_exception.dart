@@ -1,7 +1,18 @@
-class PrefException implements Exception {
+class WrongDatatypeException implements Exception {
   String message;
   String key;
-  PrefException(this.key, this.message);
+  WrongDatatypeException(this.key, this.message);
+
+  @override
+  String toString() {
+    return message;
+  }
+}
+
+class KeyNotFoundException implements Exception {
+  String message;
+  String key;
+  KeyNotFoundException(this.key, this.message);
 
   @override
   String toString() {
