@@ -413,7 +413,14 @@ class _SheredPrefHelper implements ProSheredPreference {
   }
 
   dynamic _getDynamic(String key) {
-    String? action = preferences?.getString(key);
+    String? action;
+    try {
+      action = preferences?.getString(key);
+      _exception(action == null, key);
+    } catch (e) {
+      _exception1(true, key,
+          "value of $key is type of ${action!.split(strings.separator).last}");
+    }
     _exception(action == null, key);
 
     List<String> tempList = action!.split(strings.separator);
@@ -479,9 +486,14 @@ class _SheredPrefHelper implements ProSheredPreference {
   }
 
   String __prefGetter(String key, String type) {
-    String? action = preferences?.getString(key);
-    _exception(action == null, key);
-
+    String? action;
+    try {
+      action = preferences?.getString(key);
+      _exception(action == null, key);
+    } catch (e) {
+      _exception1(true, key,
+          "value of $key is type of ${action!.split(strings.separator).last}");
+    }
     List<String> tempList = action!.split(strings.separator);
     _exception1(tempList.last != type, key,
         "value of $key is type of ${tempList.last}");
@@ -508,15 +520,14 @@ class _SheredPrefHelper implements ProSheredPreference {
   }
 
   void _exception(bool condition, String key) {
-    condition ? throw PrefException(key, '$key not found') : null;
+    if (condition) {
+      throw KeyNotFoundException(key, '$key not found');
+    }
   }
 
   void _exception1(bool condition, String key, String message) {
-    condition ? throw PrefException(key, message) : null;
+    if (condition) {
+      throw WrongDatatypeException(key, message);
+    }
   }
-
-  // List<String> toList(String input) {
-  //   return input.replaceAll('[', '').replaceAll(']', '').split(',');
-  // }
-
 }
