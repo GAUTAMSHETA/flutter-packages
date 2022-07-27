@@ -508,11 +508,15 @@ class _SheredPrefHelper implements ProSheredPreference {
   }
 
   void _exception(bool condition, String key) {
-    condition ? throw PrefException(key, '$key not found') : null;
+    if (condition) {
+      throw PrefException(key, '$key not found');
+    }
   }
 
   void _exception1(bool condition, String key, String message) {
-    condition ? throw PrefException(key, message) : null;
+    if (condition) {
+      throw PrefException(key, message);
+    }
   }
 
   // List<String> toList(String input) {
